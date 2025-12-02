@@ -220,7 +220,7 @@ public void AnalyzeFile_WithHighUtilizationInterface_ReturnsHighUtilizationClust
 ### Medium Priority
 - [ ] UI improvements (dark theme, better layout)
 - [ ] Additional anomaly detection rules
-- [ ] Localization (Ukrainian, Russian, Chinese, etc.)
+- [ ] Localization (Ukrainian, Chinese, etc.)
 - [ ] Documentation improvements
 
 ### Future/Exploratory
@@ -279,4 +279,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-Thank you for making HuaweiLogAnalyzer better! 🚀
+Thank you for making Universal Log Analyzer better! 🚀
