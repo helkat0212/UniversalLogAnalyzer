@@ -1,0 +1,77 @@
+# Huawei Router Configuration Log
+# Generated on 2024-01-15
+
+<HUAWEI>display version
+Huawei Versatile Routing Platform Software
+VRP (R) software, Version 8.180 (NE40E V800R011C10SPC600)
+Copyright (C) 2012-2020 Huawei Technologies Co., Ltd.
+HUAWEI NE40E uptime is 365 days, 12 hours, 30 minutes
+
+<HUAWEI>display device
+Device name: NE40E-1
+ESN: 210235123456789012
+SysName: CoreRouter01
+
+<HUAWEI>display interface brief
+Interface                   PHY   Protocol  InUti OutUti   inErrors  outErrors
+GigabitEthernet0/0/0        up    up        45.23  23.45   0         0
+GigabitEthernet0/0/1        up    up        12.34  56.78   5         2
+GigabitEthernet0/0/2        down  down      0.00   0.00    0         0
+
+<HUAWEI>display vlan
+VLAN ID  Name                             Status    Ports
+1        default                          active    GE0/0/0, GE0/0/1
+10       Management                       active    GE0/0/2
+100      Data                             active    GE0/0/0
+
+<HUAWEI>display ip interface brief
+Interface                        IP Address/Mask      Status  Protocol
+GigabitEthernet0/0/0             192.168.1.1/24       up      up
+GigabitEthernet0/0/1             10.0.0.1/30          up      up
+GigabitEthernet0/0/2             unassigned           down    down
+
+<HUAWEI>display bgp peer
+ BGP local router ID : 192.168.1.1
+ Local AS number : 65001
+ Total number of peers : 2
+  Peer                    AS      MsgRcvd  MsgSent  OutQ  Up/Down       State
+  10.0.0.2                65002   12345    12346    0     00:12:34:56   Established
+  192.168.2.2             65003   9876     9877     0     00:05:43:21   Established
+
+<HUAWEI>display license
+License state: Normal
+Feature name: MPLS
+License type: Permanent
+Feature name: BGP
+License type: Permanent
+
+<HUAWEI>display cpu-usage
+CPU utilization for five seconds: 15%, one minute: 12%, five minutes: 10%
+
+<HUAWEI>display memory-usage
+System Total Memory: 4096 MB
+Used Memory: 2048 MB
+Free Memory: 2048 MB
+Memory utilization: 50%
+
+<HUAWEI>display current-configuration
+#
+ sysname CoreRouter01
+#
+interface GigabitEthernet0/0/0
+ description To-Core-Switch
+ ip address 192.168.1.1 255.255.255.0
+#
+interface GigabitEthernet0/0/1
+ description To-ISP
+ ip address 10.0.0.1 255.255.255.252
+ shutdown
+#
+interface GigabitEthernet0/0/2
+ description Management
+ ip address 192.168.10.1 255.255.255.0
+#
+bgp 65001
+ peer 10.0.0.2 as-number 65002
+ peer 192.168.2.2 as-number 65003
+#

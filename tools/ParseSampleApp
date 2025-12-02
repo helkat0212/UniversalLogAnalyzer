@@ -1,0 +1,31 @@
+using System;
+using System.IO;
+using UniversalLogAnalyzer;
+
+// Minimal runner to parse a single file using ParserFactory and print summary
+class Runner
+{
+    static void Main(string[] args)
+    {
+        var path = args.Length>0? args[0] : "log_example2.txt";
+        if (!File.Exists(path)) { Console.WriteLine($"File not found: {path}"); return; }
+        try
+        {
+            var data = ParserFactory.ParseLogFile(path);
+            if (data==null) { Console.WriteLine("No parser produced output."); return; }
+            Console.WriteLine($"Device: {data.Device} (Vendor: {data.Vendor})");
+            Console.WriteLine($"SystemName: {data.SystemName}");
+            Console.WriteLine($"Version: {data.Version}");
+            Console.WriteLine($"Interfaces: {data.Interfaces?.Count ?? 0}");
+            Console.WriteLine($"VLANs: {string.Join(",", data.Vlans)}");
+            Console.WriteLine($"BGP peers: {string.Join(",", data.BgpPeers)}");
+            Console.WriteLine($"NTP servers: {string.Join(",", data.NtpServers)}");
+            Console.WriteLine($"Anomalies: {data.Anomalies?.Count ?? 0}");
+            if (data.Anomalies!=null) foreach(var a in data.Anomalies) Console.WriteLine($" - {a.Category}: {a.Description} ({a.Severity})");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"Error parsing file: {ex.Message}");
+        }
+    }
+}
