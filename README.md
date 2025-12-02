@@ -1,8 +1,6 @@
 Universal Log Analyzer
 ====================
 
-**Русский/Українська**: див. `README.uk.md` для української локалізації.
-
 ---
 
 ## 🎓 Academic Research Project | 📊 Production-Ready Software
@@ -13,7 +11,7 @@ Universal Log Analyzer
 
 > **Практична цінність**: Скорочує часові витрати адміністраторів на аналіз логів на 80–90%, підвищує точність виявлення безпекових загроз до 100% (затверджено на реальних сітях), забезпечує масштабованість для 1–1000+ пристроїв одночасно.
 
-A specialized, open-source Windows application for automated analysis of Huawei network device log files (.log/.txt) with security anomaly detection, performance metrics calculation, interface clustering, and multi-format reporting.
+A specialized, open-source Windows application for automated analysis of network device log files (.log/.txt) from multiple vendors (Huawei, Cisco, Juniper, Mikrotik) with security anomaly detection, performance metrics calculation, interface clustering, and multi-format reporting.
 
 ## ✨ Features
 
@@ -50,6 +48,14 @@ A specialized, open-source Windows application for automated analysis of Huawei 
 - **Real-time Progress**: Живий статус обробки з можливістю скасування
 - **Tabbed Interface**: Вкладки для Results, Unparsed Lines, Anomalies, Performance, Topology
 - **Auto-open Reports**: Автоматичне відкриття готових звітів у Excel
+
+### 🌐 Supported Vendors
+
+- **Huawei VRP**: Comprehensive support for Huawei Versatile Routing Platform configurations
+- **Cisco IOS**: Full parsing of Cisco Internetwork Operating System logs and configurations
+- **Juniper Junos**: Support for Juniper Networks Junos OS log files
+- **Mikrotik RouterOS**: Parsing of Mikrotik RouterOS configurations and logs
+- **GenericTextLog**: Fallback parser for unrecognized log formats with basic text analysis
 
 ### ⚡ Performance Optimized (Оптимізовано для екстремального використання)
 
@@ -95,7 +101,7 @@ dotnet publish HuaweiLogAnalyzer/HuaweiLogAnalyzer.csproj -c Release -r win-x64 
 ### Example 1: Basic Analysis
 ```
 1. Open UniversalLogAnalyzer.exe
-2. Select log file from Huawei device
+2. Select log file from any supported vendor (Huawei, Cisco, Juniper, Mikrotik)
 3. Output folder defaults to Downloads\Logs (customizable)
 4. Click "Analyze"
 5. Review results in UI tabs
