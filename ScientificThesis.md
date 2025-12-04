@@ -294,5 +294,3 @@ using (var file = File.ReadLines(path))
 5. Wireshark User Guide. wireshark.org.
 
 ---
-
-*Сторінка 1 з 2*
